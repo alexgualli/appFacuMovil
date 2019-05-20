@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title style="margin: auto;align-content: center">EVENTOS</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-content padding>
+        <ion-list>
+            <ion-item-sliding *ngFor="let evento of eventos">
+                <ion-item>
+                    <ion-item>
+                        <img src="{{ evento.image }}">
+                    </ion-item>
+                </ion-item>
+                <h1>{{ evento.name }}</h1><br>
+                <h2>{{ evento.description }}</h2>
+                <h2>{{ evento.eventDate }}</h2>
+            </ion-item-sliding>
+
+        </ion-list>
+    </ion-content>
+    <button (click)="getAllEvents()">Eventos</button>
+
+
+
+    <ion-button expand="full" routerLink="/setting">
+        Setting
+    </ion-button>
+</ion-content>
