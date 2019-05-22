@@ -18,9 +18,10 @@ export class EventsPage implements OnInit {
 
   getAllEvents() {
     this.eventService.getAllEvents()
-      .subscribe((result: any) => {
-        for (var i = 0; i < result.length; i++) {
-          var evento = result[i];
+      .subscribe((res: any) => {
+        for (var i = 0; i < res.length; i++) {
+          var evento = res[i];
+          console.log(evento)
           this.eventos.push(evento);
         }
       })

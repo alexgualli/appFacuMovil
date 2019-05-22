@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http'
 })
 export class EventService {
 
-  url='http://localhost:8080/api/v1';
+  url='http://172.30.3.233:8080/api/v1';
   constructor(private http:HttpClient) { }
 
   getAllEvents(){
