@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 
-import  'rxjs/add/operator/catch';
+import 'rxjs/add/operator/catch';
 
-import  {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,23 +11,23 @@ import  {map} from 'rxjs/operators';
 })
 export class EventService {
 
-  url='http://localhost:8080/api/v1';
-  constructor(private http:HttpClient) { }
+  url = 'http://localhost:8080/api/v1';
+  constructor(private http: HttpClient) { }
 
-  getAllEvents(){
-    const path=`${this.url}/event`;
-     return this.http.get(path);
+  getAllEvents() {
+    const path = `${this.url}/event`;
+    return this.http.get(path);
   }
-  
-  evento:any;
-  getById(id:number){
-    const path=`${this.url}/event/${id}`;
 
-    console.log('Service RESULT: '+path);
+  getById(id: number) {
+    const path = `${this.url}/event/${id}`;
+    return this.http.get(path);
+  }
 
-    return  this.http.get(path);
+  getImage(id: number) {
+    const path = `http://localhost:8080/file/image/${id}`;
+    return this.http.get(path);
+  }
 
-    
-    
-    }
+
 }

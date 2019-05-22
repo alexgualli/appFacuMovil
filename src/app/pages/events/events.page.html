@@ -1,8 +1,9 @@
 <ion-content>
+    <p *ngIf="dataReturned">{{dataReturned}}</p>
     <ion-list>
         <ion-item-sliding *ngFor="let evento of eventos">
             <ion-card>
-                <img src="{{ evento.image }}">
+                <img src="{{ evento.image }}" routerLink="/modal-image/{{ evento.id }}">
                 <ion-toolbar>
                     <ion-buttons slot="primary">
                         <ion-button color="secondary" routerLink="/event-details/{{ evento.id }}">

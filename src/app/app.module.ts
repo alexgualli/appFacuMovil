@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
+//import {ModalImagePageModule} from '../app/pages/modal-image/modal-image.module';
 
 
 import {HttpClientModule} from '@angular/common/http'

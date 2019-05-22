@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: 'events', loadChildren: './pages/events/events.module#EventsPageModule' },
   { path: 'slider', loadChildren: './pages/slider/slider.module#SliderPageModule' },
   { path: 'event-details/:id', loadChildren: './pages/event-details/event-details.module#EventDetailsPageModule' },
+  { path: 'modal-image/:id', loadChildren: './pages/modal-image/modal-image.module#ModalImagePageModule' },
+
 
   //{ path: 'settingUser', loadChildren: './pages/setting-user/setting-user.module#SettingUserPageModule' },
 ];

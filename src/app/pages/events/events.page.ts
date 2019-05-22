@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/services/serviceEvent/event.service';
 
+
+
+import { ModalController } from '@ionic/angular';
+import {ModalImagePage} from '../modal-image/modal-image.page'; 
+
+
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.page.html',
@@ -9,7 +16,7 @@ import { EventService } from 'src/app/services/serviceEvent/event.service';
 export class EventsPage implements OnInit {
 
   eventos: any[];
-  constructor(private eventService: EventService) { }
+  constructor(public modalController: ModalController,private eventService: EventService) { }
 
   ngOnInit() {
     this.eventos = [];
@@ -27,5 +34,7 @@ export class EventsPage implements OnInit {
       })
   }
 
+
+  
   
 }
