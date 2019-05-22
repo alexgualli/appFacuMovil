@@ -8,6 +8,8 @@ const routes: Routes = [
   //{ path: 'user', loadChildren: './pages/user/user.module#UserPageModule' },
   { path: 'events', loadChildren: './pages/events/events.module#EventsPageModule' },
   { path: 'slider', loadChildren: './pages/slider/slider.module#SliderPageModule' },
+  { path: 'event-details/:id', loadChildren: './pages/event-details/event-details.module#EventDetailsPageModule' },
+
   //{ path: 'settingUser', loadChildren: './pages/setting-user/setting-user.module#SettingUserPageModule' },
 ];
 

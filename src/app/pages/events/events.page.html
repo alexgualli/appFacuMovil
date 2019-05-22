@@ -5,7 +5,7 @@
                 <img src="{{ evento.image }}">
                 <ion-toolbar>
                     <ion-buttons slot="primary">
-                        <ion-button color="secondary">
+                        <ion-button color="secondary" routerLink="/event-details/{{ evento.id }}">
                             <ion-icon slot="icon-only" name="eye"></ion-icon>
                         </ion-button>
                     </ion-buttons>

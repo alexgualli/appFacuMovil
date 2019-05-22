@@ -27,4 +27,5 @@ export class EventsPage implements OnInit {
       })
   }
 
+  
 }
