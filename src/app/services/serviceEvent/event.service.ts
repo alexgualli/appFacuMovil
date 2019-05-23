@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
-import 'rxjs/add/operator/catch';
-
-import { map } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
