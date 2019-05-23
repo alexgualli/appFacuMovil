@@ -5,6 +5,16 @@
 </ion-header>
 
 <ion-content padding>
+
+
+    <ion-toolbar>
+        <ion-buttons>
+            <ion-button>
+                <ion-back-button defaultHref="/"> </ion-back-button>
+            </ion-button>
+            <ion-title>{{ image.event.name }}</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
     <ion-grid>
         <ion-row>
             <ion-col text-center>
@@ -13,7 +23,7 @@
         </ion-row>
         <ion-row>
             <ion-col text-center>
-                <ion-button routerLink="/">Close Modal</ion-button>
+                <ion-button routerLink="/events">Close Modal</ion-button>
             </ion-col>
         </ion-row>
     </ion-grid>
