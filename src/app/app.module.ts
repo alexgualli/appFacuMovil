@@ -16,6 +16,11 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 //import {ModalImagePageModule} from '../app/pages/modal-image/modal-image.module';
 
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+
+
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+
 
 import {HttpClientModule} from '@angular/common/http'
 
@@ -28,6 +33,8 @@ import {HttpClientModule} from '@angular/common/http'
     SplashScreen,
     NativeStorage,
     Facebook,
+    QRScanner,
+    Dialogs,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
