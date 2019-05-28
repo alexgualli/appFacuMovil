@@ -6,7 +6,7 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import {Dialogs} from '@ionic-native/dialogs/ngx'
 
 import { ModalController, Platform } from '@ionic/angular';
-import {ModalImagePage} from '../modal-image/modal-image.page'; 
+
 
 
 
@@ -18,7 +18,8 @@ import {ModalImagePage} from '../modal-image/modal-image.page';
 export class EventsPage implements OnInit {
 
   qrScan:any;
-  eventos: any[];
+  events: any[];
+  color:string="warning"
   constructor(public platform:Platform,public dialog:Dialogs,private qrScanner: QRScanner,public modalController: ModalController,private eventService: EventService) { 
     /*this.platform.backButton.subscribeWithPriority(0,()=>{
       document.getElementsByTagName("body")[0].style.opacity="1";
@@ -27,7 +28,7 @@ export class EventsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.eventos = [];
+    this.events = [];
     this.getAllEvents();
   }
 
@@ -35,14 +36,12 @@ export class EventsPage implements OnInit {
     this.eventService.getAllEvents()
       .subscribe((res: any) => {
         for (var i = 0; i < res.length; i++) {
-          var evento = res[i];
-          console.log(evento)
-          this.eventos.push(evento);
+          var event = res[i];
+          console.log(event)
+          this.events.push(event);
         }
       })
   }
-
-  
 
   scan(){
     this.qrScanner.prepare().then((status:QRScannerStatus)=>{

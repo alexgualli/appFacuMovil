@@ -1,24 +1,41 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="primary">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+            <!--aqui va a estar el slider pero como menu button y no slider-->
+        </ion-buttons>
+        <ion-buttons slot="secondary">
+            <ion-button routerLink="/notification">
+                <ion-icon slot="icon-only" name="notifications" routerLink="/notifications/" ></ion-icon>
+                <!--aqui tiene que salir como una ventanita con las notificaciones que tiene-->
+                <ion-badge color="warning" style="margin-left: -12px; margin-top: -20px; font-size: 10px;">22</ion-badge>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="scan()">
+                <ion-icon slot="icon-only" name="qr-scanner"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
 <ion-content>
     <p *ngIf="dataReturned">{{dataReturned}}</p>
     <ion-list>
-        <ion-item-sliding *ngFor="let evento of eventos">
+        <ion-item-sliding *ngFor="let event of events">
             <ion-card>
-                <img src="{{ evento.image }}" routerLink="/modal-image/{{ evento.id }}">
+                <img src="{{ event.image }}" >
                 <ion-toolbar>
                     <ion-buttons slot="primary">
-                        <ion-button color="secondary" routerLink="/event-details/{{ evento.id }}">
+                        <ion-button color="secondary" routerLink="/event-details/{{ event.id }}">
                             <ion-icon slot="icon-only" name="eye"></ion-icon>
                         </ion-button>
                     </ion-buttons>
-                    <ion-title>{{ evento.name }}</ion-title>
+                    <ion-title>{{ event.name }}</ion-title>
                 </ion-toolbar>
                 <ion-card-content>
-                    Miercoles 24 de Mayo del 2019
-                    <!--{{ evento.eventDate }}-->
+                    {{ event.eventDate }}
                 </ion-card-content>
             </ion-card>
         </ion-item-sliding>
     </ion-list>
-
-    <ion-button (click)="scan()" expand="full">Scanner</ion-button>
 </ion-content>
