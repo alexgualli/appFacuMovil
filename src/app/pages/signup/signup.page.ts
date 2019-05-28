@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { NavController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import User from '../entity/user';
+import { UserServiceService } from 'src/app/services/serviceUser/user-service.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -9,28 +11,31 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupPage implements OnInit {
 
+  user: User = new User();
   myForm: FormGroup;
-  
+
   constructor(
     public navCtrl: NavController,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public userService:UserServiceService
   ) {
     this.myForm = this.createMyForm();
   }
-  
-  saveData(){
-    console.log(this.myForm.value);
+
+  createUser() {
+    this.user.email = this.myForm.value.email;
+    this.user.full_name = this.myForm.value.name;
+    this.user.password = this.myForm.value.password;
+    this.userService.createUser(this.user).subscribe((newUser)=>{
+      console.log(newUser);
+    })
   }
-  
-  private createMyForm(){
+
+  private createMyForm() {
     return this.formBuilder.group({
-      
       name: ['', Validators.required],
       email: ['', Validators.required],
-      passwordRetry: this.formBuilder.group({
-        password: ['', Validators.required],
-        passwordConfirmation: ['', Validators.required]
-      }),
+      password: ['', Validators.required],
     });
   }
 

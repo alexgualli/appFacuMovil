@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import Service from '../service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventService {
+export class EventService extends Service {
 
-  url = 'http://localhost:8080/api/v1';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+      super('/event');
+   }
 
   getAllEvents() {
-    const path = `${this.url}/event`;
+    const path = `${this.url}`;
     return this.http.get(path);
   }
 
   getById(id: number) {
-    const path = `${this.url}/event/${id}`;
+    const path = `${this.url}/${id}`;
     return this.http.get(path);
   }
 
-  getImage(id: number) {
-    const path = `http://localhost:8080/file/image/${id}`;
+  getByQr(qr:string){
+    const path = `${this.url}/qr/${qr}`;
     return this.http.get(path);
   }
-
 
 }
