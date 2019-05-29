@@ -1,32 +1,33 @@
-<ion-content class="login-content" padding>
-
-
-    <div class="hero-image">
-        <img class="sky" alt="The sky above the ocean" src="../../assets/img/hero-sky.png" />
-        <img class="cloud cloud-1" alt="A grayish-blue cloud" src="../../assets/img/hero-cloud.png" />
-        <img class="cloud cloud-2" alt="Another grayish-blue cloud" src="../../assets/img/hero-cloud.png" />
-        <img class="ship" alt="A ship hovering a few feet over the surface of the water, bearing a flagpole with the Sails.js logo" src="../../assets/img/hero-ship.png" />
-        <img class="water" alt="The shadow of the floating ship on the water" src="../../assets/img/hero-water.png" />
-    </div>
-
-
-
-
-    <ion-row style="margin-top: -50px;">
-
-        <ion-col>
-            <h1 class="logo">FACU MOVIL</h1>
-            <p class="description">Aplicacion de registro de eventos de la UNACH</p>
-            <p class="description">Visitanos<a href="http://www.unach.edu.ec/" target="_blank">UNACH</a></p>
-        </ion-col>
-    </ion-row>
-
-    <ion-button color="primary" routerLink="/events">
-        Iniciar
-    </ion-button>
-    <ion-button color="primary" routerLink="/signup">
-        Registrarce
-    </ion-button>
-
-
+<ion-content>
+    <form #form="ngForm" (ngSubmit)="login(form)">
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div text-center>
+                        <img class="sky" alt="The sky above the ocean" src="../../assets/img/icon.png" />
+                        <h3>Login</h3>
+                    </div>
+                    <div padding>
+                        <ion-item>
+                            <ion-input name="email" type="email" placeholder="your@email.com" ngModel required>
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input name="password" type="password" placeholder="Password" ngModel required>
+                            </ion-input>
+                        </ion-item>
+                    </div>
+                    <div padding>
+                        <ion-button color="primary" size="large" type="submit" [disabled]="form.invalid" expand="block">
+                            Login</ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
 </ion-content>
+
+
+<ion-row justify-content-center>
+    ¿No tienes una cuenta? <span class="sign" routerLink='/signup'>Regístrate</span>
+</ion-row>
