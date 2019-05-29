@@ -8,7 +8,46 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+    <ion-card-content>
+        <ion-card-title>
+            {{ activity.name }}
+        </ion-card-title>
+        <br>
+        <ion-card-subtitle>
+            Tipo de Actividad:
+        </ion-card-subtitle>
+        {{ activity.type }}
+        <br><br>
+        <ion-card-subtitle>
+            Persona a Cargo:
+        </ion-card-subtitle>
+        {{ activity.inCharge }}
+        <br><br>
+        <ion-card-subtitle>
+            Lugar:
+        </ion-card-subtitle>
+        {{ activity.place }}
+        <br><br>
+        <ion-card-subtitle>
+            Hora de Apertura:
+        </ion-card-subtitle>
+        {{ activity.startTime }}
+        <br><br>
+        <ion-card-subtitle>
+            Hora de Cierre:
+        </ion-card-subtitle>
+        {{ activity.finishTime }}
+        <br><br>
+        <div *ngIf="activity.requireInscription">
+            <ion-card-subtitle>
+                Cupos Disponibles:
+            </ion-card-subtitle>
+            {{ activity.quota }}
+            <br><br>
+        </div>
+    </ion-card-content>
 </ion-content>
+<div padding>
+    <ion-button disabled="{{visible}}" expand="block">Registrarse</ion-button>
+</div>
