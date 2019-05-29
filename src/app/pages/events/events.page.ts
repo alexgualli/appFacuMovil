@@ -43,7 +43,6 @@ export class EventsPage implements OnInit {
       .subscribe((res: any) => {
         for (var i = 0; i < res.length; i++) {
           var event = res[i];
-          console.log(event)
           this.events.push(event);
         }
       })

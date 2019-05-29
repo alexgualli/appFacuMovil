@@ -9,18 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventDetailsPage implements OnInit {
 
-  event:any;
-  activities:any[];
-  constructor(private activatedRoute: ActivatedRoute,private service:EventService) {
-
-   }
+  public event: any;
+  constructor(private activatedRoute: ActivatedRoute, private service: EventService) {
+    this.event = {}
+  }
 
   ngOnInit() {
 
-    let id=this.activatedRoute.snapshot.paramMap.get('id');
-    
-    this.service.getById(parseInt(id)).subscribe((res:any)=>{
-      this.event=res.event;
+    let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+
+    this.service.getById(id).subscribe((res: any) => {
+      this.event = res.event;
     })
   }
 
