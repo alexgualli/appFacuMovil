@@ -1,14 +1,48 @@
+<ion-menu side="start" menuId="first" type="overlay" swipe-gesture="true">
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>
+                Menú
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-icon slot="start" name="calendar"></ion-icon>
+                <ion-label mode="ios">Mis Eventos</ion-label>
+            </ion-item>
+            <ion-item routerLink="/setting-user">
+                <ion-icon slot="start" name="contact"></ion-icon>
+                <ion-label mode="ios">Mi Cuenta</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="information-circle"></ion-icon>
+                <ion-label mode="ios">Acerca de</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar>
+            <ion-item routerLink="/">
+                <ion-icon slot="start" name="log-out"></ion-icon>
+                <ion-label mode="ios">Cerrar Cesión</ion-label>
+            </ion-item>
+        </ion-toolbar>
+    </ion-footer>
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>
 <ion-header>
     <ion-toolbar color="primary">
         <ion-buttons slot="start" color="primary">
             <ion-menu-button autoHide="false"></ion-menu-button>
-            <!--aqui va a estar el slider pero como menu button y no slider-->
         </ion-buttons>
         <ion-buttons slot="secondary">
             <ion-button routerLink="/notification">
-                <ion-icon slot="icon-only" name="notifications" routerLink="/notifications/" ></ion-icon>
+                <ion-icon slot="icon-only" name="notifications" routerLink="/notifications/"></ion-icon>
                 <!--aqui tiene que salir como una ventanita con las notificaciones que tiene-->
-                <ion-badge color="warning" style="margin-left: -12px; margin-top: -20px; font-size: 10px;">22</ion-badge>
+                <ion-badge color="warning" style="margin-left: -12px; margin-top: -20px; font-size: 10px;">22
+                </ion-badge>
             </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
@@ -21,14 +55,9 @@
 <ion-content>
     <p *ngIf="dataReturned">{{dataReturned}}</p>
     <ion-list>
-<<<<<<< HEAD
-        hola: {{ qr }}
-        <ion-item-sliding *ngFor="let evento of eventos">
-=======
         <ion-item-sliding *ngFor="let event of events">
->>>>>>> 503f19eae905b8e51932e7d736470ca53123d947
             <ion-card>
-                <img src="{{ event.image }}" >
+                <img src="{{ event.image }}">
                 <ion-toolbar>
                     <ion-buttons slot="primary">
                         <ion-button color="secondary" routerLink="/event-details/{{ event.id }}">
