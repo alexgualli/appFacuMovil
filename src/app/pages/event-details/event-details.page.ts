@@ -10,17 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 export class EventDetailsPage implements OnInit {
 
   public event: any;
+  public visible: boolean=true;
   constructor(private activatedRoute: ActivatedRoute, private service: EventService) {
     this.event = {}
   }
 
   ngOnInit() {
-
-    let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
-
-    this.service.getById(id).subscribe((res: any) => {
-      this.event = res.event;
-    })
+    if (parseInt(this.activatedRoute.snapshot.paramMap.get('id')) != null) {
+      let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+      this.service.getById(id).subscribe((res: any) => {
+        this.event = res.event;
+        this.visible=true;
+      })
+    } else {
+      let id = this.activatedRoute.snapshot.paramMap.get('qr');
+      this.service.getByQr(id).subscribe((res: any) => {
+        this.event = res.event;
+        this.visible=false;
+      })
+    }
   }
 
 }

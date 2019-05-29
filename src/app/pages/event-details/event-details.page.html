@@ -36,7 +36,10 @@
         <ion-item *ngFor="let activity of event.activities">
             <ion-icon slot="start" name="clipboard"></ion-icon>
             <ion-label mode="ios">{{activity.name}}</ion-label>
-            <ion-icon slot="end" name="arrow-dropright"  routerLink="/activity/{{ activity.id }}"></ion-icon>
+            <ion-icon slot="end" name="arrow-dropright" routerLink="/activity/{{ activity.id }}"></ion-icon>
         </ion-item>
     </ion-list>
 </ion-content>
+<div padding *ngIf="!visible">
+    <ion-button expand="block">Registrar Asistencia</ion-button>
+</div>
