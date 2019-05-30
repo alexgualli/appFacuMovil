@@ -3,9 +3,9 @@ import { EventService } from 'src/app/services/serviceEvent/event.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-event-details',
-  templateUrl: './event-details.page.html',
-  styleUrls: ['./event-details.page.scss'],
+  selector: 'app-eventDetails',
+  templateUrl: './eventDetails.page.html',
+  styleUrls: ['./eventDetails.page.scss'],
 })
 export class EventDetailsPage implements OnInit {
 

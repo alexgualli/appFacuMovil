@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventDetailsPage } from './event-details.page';
+import { EventDetailsPage } from './eventDetails.page';
 
 describe('EventDetailsPage', () => {
   let component: EventDetailsPage;

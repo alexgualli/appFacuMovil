@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'setting-user', loadChildren: './pages/setting-user/setting-user.module#SettingUserPageModule' },
   { path: 'events', loadChildren: './pages/events/events.module#EventsPageModule' },
-  { path: 'event-details/:id', loadChildren: './pages/event-details/event-details.module#EventDetailsPageModule' },
+  { path: 'eventDetails/:id', loadChildren: './pages/eventDetails/eventDetails.module#EventDetailsPageModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'notification', loadChildren: './pages/notification/notification.module#NotificationPageModule' },
   { path: 'activity/:id', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
