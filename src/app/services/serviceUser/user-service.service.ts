@@ -13,7 +13,7 @@ export class UserServiceService extends Service{
    }
 
   createUser(user:User){
-    const path = `${this.url}`;
+    const path = `${this.url}s`;
     return this.http.put(path,user);
   }
 }

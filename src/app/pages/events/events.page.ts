@@ -83,7 +83,7 @@ export class EventsPage implements OnInit {
 
   
   filterItems(searchTerm){  
-    this.events = this.eventsFilter
+    this.events = this.eventsFilter;
     return this.events.filter((item) => {
          return item.name.toLowerCase().includes(searchTerm.toLowerCase());
      });  
