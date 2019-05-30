@@ -13,7 +13,7 @@ export class EventService extends Service {
    }
 
   getAllEvents() {
-    const path = `${this.url}s`;
+    const path = `${this.url}`;
     return this.http.get(path);
   }
 

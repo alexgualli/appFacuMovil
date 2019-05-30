@@ -41,6 +41,7 @@
         <ion-buttons slot="start" color="primary">
             <ion-menu-button autoHide="false"></ion-menu-button>
         </ion-buttons>
+        <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
         <ion-buttons slot="secondary">
             <ion-button routerLink="/notification">
                 <ion-icon slot="icon-only" name="notifications" routerLink="/notifications/"></ion-icon>

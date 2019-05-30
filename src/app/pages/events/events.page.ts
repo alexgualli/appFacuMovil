@@ -18,6 +18,7 @@ export class EventsPage implements OnInit {
 
   qrScan: any;
   events: any[];
+  eventsFilter: any[];
   constructor(
     public platform: Platform,
     public dialog: Dialogs,
@@ -41,10 +42,9 @@ export class EventsPage implements OnInit {
   getAllEvents() {
     this.eventService.getAllEvents()
       .subscribe((res: any) => {
-        for (var i = 0; i < res.length; i++) {
-          var event = res[i];
-          this.events.push(event);
-        }
+        this.events = res
+        this.eventsFilter = res
+
       })
   }
 
@@ -72,6 +72,22 @@ export class EventsPage implements OnInit {
       }
     })
   }
+  searchTerm : any="";
+  jsonData : any;
+  
+  setFilteredItems() {
+ 
+    this.events = this.filterItems(this.searchTerm);
+
+}
+
+  
+  filterItems(searchTerm){  
+    this.events = this.eventsFilter
+    return this.events.filter((item) => {
+         return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+     });  
+ }
 
   openFirst() {
     this.menu.open('first');
