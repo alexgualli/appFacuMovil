@@ -14,21 +14,30 @@ export class EventDetailsPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private service: EventService) {
     this.event = {}
   }
-
+  qr:string;
+  id:string;
   ngOnInit() {
-    if (parseInt(this.activatedRoute.snapshot.paramMap.get('id')) != null) {
-      let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
-      this.service.getById(id).subscribe((res: any) => {
-        this.event = res.event;
-        this.visible=true;
-      })
-    } else {
-      let id = this.activatedRoute.snapshot.paramMap.get('qr');
+
+    this.qr=this.activatedRoute.snapshot.paramMap.get('id');
+    this.id=this.activatedRoute.snapshot.paramMap.get('id');
+
+    if (this.activatedRoute.snapshot.paramMap.get('id') != '') {
+
+      let id = this.activatedRoute.snapshot.paramMap.get('id');
       this.service.getByQr(id).subscribe((res: any) => {
         this.event = res.event;
         this.visible=false;
       })
     }
+      
+     if(parseInt(this.activatedRoute.snapshot.paramMap.get('id')) > 0){
+      let id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+      this.service.getById(id).subscribe((res: any) => {
+        this.event = res.event;
+        this.visible=true;
+      })
+    }
+  
   }
-
 }
+

@@ -5,7 +5,7 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 
 import { Dialogs } from '@ionic-native/dialogs/ngx'
 
-import { ModalController, Platform, MenuController } from '@ionic/angular';
+import { ModalController, Platform, MenuController, NavController } from '@ionic/angular';
 
 
 
@@ -25,7 +25,8 @@ export class EventsPage implements OnInit {
     private qrScanner: QRScanner,
     public modalController: ModalController,
     private eventService: EventService,
-    private menu: MenuController
+    private menu: MenuController,
+    private navController:NavController
   ) {
 
   this.platform.backButton.subscribeWithPriority(0, () => {
@@ -58,8 +59,9 @@ export class EventsPage implements OnInit {
         this.qrScan = this.qrScanner.scan().subscribe((textFound) => {
           document.getElementsByTagName("body")[0].style.opacity = "1";
           this.qrScan.unsubscribe();
-          this.dialog.alert(textFound);
           this.qr = textFound;
+          this.navController.navigateForward(['/event-details/qr/',{id:this.qr}]);
+          this.qrScanner.destroy();
         }, (err) => {
           this.dialog.alert(JSON.stringify(err));
         })
@@ -73,7 +75,7 @@ export class EventsPage implements OnInit {
     })
   }
   searchTerm : any="";
-  jsonData : any;
+  
   
   setFilteredItems() {
  
