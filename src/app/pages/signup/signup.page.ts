@@ -17,26 +17,37 @@ export class SignupPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public userService:UserServiceService
+    public userService: UserServiceService
   ) {
     this.myForm = this.createMyForm();
   }
 
   createUser() {
-    this.user.email = this.myForm.value.email;
-    this.user.full_name = this.myForm.value.name;
-    this.user.password = this.myForm.value.password;
-    this.userService.createUser(this.user).subscribe((newUser)=>{
-      console.log(newUser);
-    })
+    if (this.myForm.value.password === this.myForm.value.passwordConfirmation) {
+      this.user.emailAddress = this.myForm.value.emailAddress;
+      this.user.fullName = this.myForm.value.fullName;
+
+      this.user.password = this.myForm.value.password;
+      this.userService.createUser(this.user).subscribe((newUser) => {
+        console.log(newUser);
+      })
+      
+    }
+    else{
+      console.log('Error');
+    }
+    
   }
 
   private createMyForm() {
     return this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      fullName: ['', Validators.required],
+      emailAddress: ['', Validators.required],
       password: ['', Validators.required],
+      passwordConfirmation: ['', Validators.required],
+
     });
+    console.log();
   }
 
   /*
@@ -48,7 +59,6 @@ export class SignupPage implements OnInit {
             </ion-item>
   */
   public ngOnInit() {
-    console.log(this.myForm.value);
-
+    
   }
 }

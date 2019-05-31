@@ -1,7 +1,7 @@
 export default class User{
-    full_name:string;
+    fullName:string;
     password:string;
-    email:string;
+    emailAddress:string;
     id?:number;
 
 }

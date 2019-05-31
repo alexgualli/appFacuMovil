@@ -14,6 +14,6 @@ export class UserServiceService extends Service{
 
   createUser(user:User){
     const path = `${this.url}s`;
-    return this.http.put(path,user);
+    return this.http.post(path,user);
   }
 }

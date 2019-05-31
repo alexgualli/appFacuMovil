@@ -8,32 +8,32 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <form #form="ngForm" (ngSubmit)="saveData(form)">
+  <form [formGroup]="myForm" (ngSubmit)="createUser()">
     <ion-list>
       <ion-item>
         <!--/ion-icon> name="person" item-start></ion-icon-->
         <ion-label position="floating" stacked>Nombres Completo</ion-label>
-        <ion-input name="fullName"  type="text" [(ngModel)]="fullName" required></ion-input>
+        <ion-input formControlName="fullName"  type="text"  required></ion-input>
       </ion-item>
       <ion-item>
         <!--/ion-icon> name="mail" item-start></ion-icon-->
         <ion-label position="floating" stacked>Correo electronico:</ion-label>
-        <ion-input name="emailAddress" required="required"  type="email" [(ngModel)]="emailAddress" required></ion-input>
+        <ion-input formControlName="emailAddress" required="required"  type="email"  required></ion-input>
       </ion-item>
         <ion-item>
           <!--/ion-icon> name="eye" item-start></ion-icon-->
           <ion-label position="floating" stacked>Contraseña:</ion-label>
-          <ion-input name="password" type="password" [(ngModel)]="password" required></ion-input>
+          <ion-input formControlName="password" type="password"  required></ion-input>
         </ion-item>
         <ion-item>
           <!--/ion-icon> name="eye" item-start></ion-icon-->
           <ion-label position="floating" stacked>Confirmar contraseña:</ion-label>
-          <ion-input name="passwordConfirmation" type="password" [(ngModel)]="passwordConfirmation" required></ion-input>
+          <ion-input formControlName="passwordConfirmation" type="password"  required></ion-input>
         </ion-item>
       
     </ion-list>
     <div padding>
-      <ion-button [disabled]="form.invalid" expand="block" type="submit">Registrarse</ion-button>
+      <ion-button expand="block" type="submit">Registrarse</ion-button>
     </div>
   </form>
 </ion-content>
