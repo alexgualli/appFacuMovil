@@ -60,7 +60,7 @@ export class EventsPage implements OnInit {
           document.getElementsByTagName("body")[0].style.opacity = "1";
           this.qrScan.unsubscribe();
           this.qr = textFound;
-          this.navController.navigateForward(['/event-details/qr/',{id:this.qr}]);
+          this.navController.navigateForward(['/eventDetails/qr/',{id:this.qr}]);
           this.qrScanner.destroy();
         }, (err) => {
           this.dialog.alert(JSON.stringify(err));

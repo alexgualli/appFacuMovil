@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'notification', loadChildren: './pages/notification/notification.module#NotificationPageModule' },
   { path: 'activity/:id', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
   { path: 'modal-imagenpm', loadChildren: './pages/modal-imagenpm/modal-imagenpm.module#ModalImagenpmPageModule' },
-  { path: 'event-details/?', loadChildren: './pages/event-details/event-details.module#EventDetailsPageModule' },
+  { path: 'eventDetails/?', loadChildren: './pages/eventDetails/eventDetails.module#EventDetailsPageModule' },
 
 
 
