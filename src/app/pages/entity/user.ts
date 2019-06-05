@@ -1,5 +1,6 @@
 export default class User{
-    fullName:string;
+    firstName?:string;
+    lastName?:string;
     password:string;
     emailAddress:string;
     id?:number;
