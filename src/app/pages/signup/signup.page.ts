@@ -25,11 +25,16 @@ export class SignupPage implements OnInit {
   createUser() {
     if (this.myForm.value.password === this.myForm.value.passwordConfirmation) {
       this.user.emailAddress = this.myForm.value.emailAddress;
-      this.user.fullName = this.myForm.value.fullName;
-
+      this.user.firstName = this.myForm.value.firstName;
+      this.user.lastName = this.myForm.value.lastName;
       this.user.password = this.myForm.value.password;
       this.userService.createUser(this.user).subscribe((newUser) => {
         console.log(newUser);
+      }
+      ,error=>{
+        if(error.statusText == 'OK'){
+          this.navCtrl.navigateForward(['/login']);
+        }
       })
       
     }
@@ -41,13 +46,13 @@ export class SignupPage implements OnInit {
 
   private createMyForm() {
     return this.formBuilder.group({
-      fullName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       emailAddress: ['', Validators.required],
       password: ['', Validators.required],
       passwordConfirmation: ['', Validators.required],
 
     });
-    console.log();
   }
 
   /*
