@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import User from '../entity/user';
 import { UserServiceService } from 'src/app/services/serviceUser/user-service.service';
+import { AlertServiceService } from 'src/app/services/serviceAlert/alert-service.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -17,7 +18,8 @@ export class SignupPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public userService: UserServiceService
+    public userService: UserServiceService,
+    private alertService:AlertServiceService
   ) {
     this.myForm = this.createMyForm();
   }
@@ -33,13 +35,19 @@ export class SignupPage implements OnInit {
       }
       ,error=>{
         if(error.statusText == 'OK'){
+          this.alertService.presentToast('Registro Correcto','success');
           this.navCtrl.navigateForward(['/login']);
+        }
+        else{
+          this.alertService.presentToast('Intentalo de Nuevo','danger');
+    
         }
       })
       
     }
     else{
-      console.log('Error');
+      this.alertService.presentToast('Las contraseñas no coinciden','danger');
+
     }
     
   }
