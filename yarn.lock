@@ -306,10 +306,10 @@
   dependencies:
     "@types/cordova" latest
 
-"@ionic-native/native-storage@^5.0.0":
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/@ionic-native/native-storage/-/native-storage-5.6.1.tgz#3dfc2d5fd118c1004bd92c426bee1eb88d7eefb8"
-  integrity sha512-h9zwqqDPx8omulBMTQyYh7467kwm/T82TeyGktskyziXxxVUKY+wc0n0Civx/cIm2GDV7x/5Ldequf0NsQpVgw==
+"@ionic-native/native-storage@^5.6.1":
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/native-storage/-/native-storage-5.7.0.tgz#d9d4d4138a6f6da0aa84405668de3257d8300404"
+  integrity sha512-6/y7XF7ZcqoxvwXYB1LKCGGm9BvqDoS9LDlYx3OKGWF+KNDc3k9H4vzMA1QZtb0k5x03YY+UGZFR1YqbQb2U6w==
   dependencies:
     "@types/cordova" latest
 
