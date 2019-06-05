@@ -3,6 +3,7 @@ import { UserServiceService } from 'src/app/services/serviceUser/user-service.se
 import { AlertServiceService } from 'src/app/services/serviceAlert/alert-service.service';
 import { NavController, ModalController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+import User from '../entity/user';
 
 @Component({
   selector: 'app-login',
@@ -22,18 +23,20 @@ export class LoginPage implements OnInit {
   dismissLogin() {
     this.modalController.dismiss();
   }
+  user: User = new User();
   login(form: NgForm) {
-    console.log(form.value.email +'  '+ form.value.password);
-    this.authService.login(form.value.email, form.value.password).subscribe(
-      data => {
-        this.alertService.presentToast("Welcome");
+    this.user.emailAddress=form.value.email;
+    this.user.password=form.value.password;
+    console.log(this.user);
+    this.authService.login(this.user).subscribe(
+     (user:any) => {
+       console.log(user);
+        this.navCtrl.navigateForward(['/events']);
       },
       error => {
-        console.log(error);
-      },
-      () => {
-        this.dismissLogin();
-        this.navCtrl.navigateRoot('/events');
+        if(error.statusText != 'Unauthorized'){
+          this.navCtrl.navigateForward(['/events']);
+        }
       }
     );
   }
