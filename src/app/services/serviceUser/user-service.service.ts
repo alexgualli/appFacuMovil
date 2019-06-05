@@ -18,28 +18,14 @@ export class UserServiceService extends Service{
     super('/entrance');
    }
 
-   login(email: String, password: String) {
-    return this.http.post(this.url+'/login',
-      {email: email, password: password}
-    ).pipe(
-      tap(token => {
-        this.storage.setItem('token', token)
-        .then(
-          () => {
-            console.log('Token Stored');
-          },
-          error => console.error('Error storing item', error)
-        );
-        this.token = token;
-        this.isLoggedIn = true;
-        return token;
-      }),
-    );
+  login(user:User){
+    const path = `${this.url}/login`;
+    return this.http.put(path,user);
   }
 
 
   createUser(user:User){
-    const path = `${this.url}s`;
+    const path = `${this.url}/signup`;
     return this.http.post(path,user);
   }
 }
