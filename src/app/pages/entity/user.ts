@@ -4,5 +4,6 @@ export default class User{
     password:string;
     emailAddress:string;
     id?:number;
+    rememberMe?:true;
 
 }

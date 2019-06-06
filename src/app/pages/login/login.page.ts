@@ -27,15 +27,16 @@ export class LoginPage implements OnInit {
   login(form: NgForm) {
     this.user.emailAddress=form.value.email;
     this.user.password=form.value.password;
-    this.authService.login(this.user).subscribe(
+    this.authService.login(this.user.rememberMe,this.user.emailAddress,this.user.password).subscribe(
      (user:any) => {
+       console.log('user: '+user);
        this.navCtrl.navigateForward(['/events']);
       },
       error => {
-        if(error.statusText != 'Unauthorized'){
+        
+        if(error.status == 200){
           this.alertService.presentToast('Bienvenido','success');
-          this.navCtrl.navigateForward(['/events']);
-          console.log(this.user.id);
+          this.navCtrl.navigateForward(['/events']);          
         }
         else{
           this.alertService.presentToast('Email o Password Incorrecto','danger');

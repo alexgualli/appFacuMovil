@@ -6,6 +6,7 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { Dialogs } from '@ionic-native/dialogs/ngx'
 
 import { ModalController, Platform, MenuController, NavController } from '@ionic/angular';
+import { UserServiceService } from 'src/app/services/serviceUser/user-service.service';
 
 
 
@@ -26,6 +27,7 @@ export class EventsPage implements OnInit {
     public modalController: ModalController,
     private eventService: EventService,
     private menu: MenuController,
+    private userService:UserServiceService,
     private navController:NavController
   ) {
 
@@ -40,6 +42,26 @@ export class EventsPage implements OnInit {
     this.getAllEvents();
   }
 
+  getUserLoged(){
+    this.userService.getUserLoged()
+      .subscribe((res: any) => {
+        console.log('si '+ res);
+
+      },user=>{
+        console.log('no '+user.status);
+      })
+  }
+  signOut(){
+    this.userService.signOut()
+    .subscribe((res: any) => {
+      console.log('si '+ res);
+
+    },user=>{
+      console.log('no '+user.status);
+      this.navController.navigateForward(['/login']);          
+
+    })
+  }
   getAllEvents() {
     this.eventService.getAllEvents()
       .subscribe((res: any) => {
@@ -47,6 +69,7 @@ export class EventsPage implements OnInit {
         this.eventsFilter = res
 
       })
+     
   }
 
   qr: string = 'No hay nada';
