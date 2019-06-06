@@ -15,17 +15,26 @@ export class UserServiceService extends Service{
   token:any;
   constructor(private http: HttpClient,
     private storage: NativeStorage) {
-    super('/entrance');
+    super('/');
    }
 
-  login(user:User){
-    const path = `${this.url}/login`;
-    return this.http.put(path,user);
+  login(rememberMe:boolean,emailAddress:string,password:string){
+    const path = `${this.url}entrance/login`;
+    return this.http.put(path,{rememberMe,emailAddress,password});
   }
 
 
   createUser(user:User){
-    const path = `${this.url}/signup`;
+    const path = `${this.url}entrance/signup`;
     return this.http.post(path,user);
+  }
+
+  getUserLoged(){
+    const path = `${this.url}account/me`;
+    return this.http.get(path);
+  }
+  signOut(){
+    const path = `${this.url}account/logout`;
+    return this.http.get(path);
   }
 }
