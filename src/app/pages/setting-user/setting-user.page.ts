@@ -40,10 +40,6 @@ export class SettingUserPage implements OnInit {
    
   }
 
-  getImage(){
-    
-  }
-
  
   
   

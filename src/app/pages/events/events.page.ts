@@ -42,6 +42,10 @@ export class EventsPage implements OnInit {
     this.getAllEvents();
   }
 
+  doRefresh(refresher){
+    this.getAllEvents(refresher);
+  }
+
   getUserLoged(){
     this.userService.getUserLoged()
       .subscribe((res: any) => {
@@ -62,13 +66,18 @@ export class EventsPage implements OnInit {
 
     })
   }
-  getAllEvents() {
+  getAllEvents(refresher?) {
     this.eventService.getAllEvents()
       .subscribe((res: any) => {
         this.events = res
         this.eventsFilter = res
-
       })
+      if(refresher){
+        setTimeout(() => {
+          console.log('Async operation has ended');
+          refresher.target.complete();
+        }, 2000);
+      }
      
   }
 
