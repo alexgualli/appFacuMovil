@@ -18,6 +18,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
+import {Camera} from '@ionic-native/camera/ngx';
+
 
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 
@@ -34,6 +36,7 @@ import {HttpClientModule} from '@angular/common/http';
     NativeStorage,
     Facebook,
     QRScanner,
+    Camera,
     Dialogs,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

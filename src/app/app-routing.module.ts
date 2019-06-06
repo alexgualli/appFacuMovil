@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'notification', loadChildren: './pages/notification/notification.module#NotificationPageModule' },
   { path: 'activity/:id', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
-  { path: 'modal-imagenpm', loadChildren: './pages/modal-imagenpm/modal-imagenpm.module#ModalImagenpmPageModule' },
+  { path: 'modal-imagenpm/?', loadChildren: './pages/modal-imagenpm/modal-imagenpm.module#ModalImagenpmPageModule' },
   { path: 'eventDetails/?', loadChildren: './pages/eventDetails/eventDetails.module#EventDetailsPageModule' },
 
 
