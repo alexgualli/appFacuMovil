@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import Service from '../service';
+import config from 'src/util/config';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventService extends Service {
+export class EventService {
 
+  private url: string;
   constructor(private http: HttpClient) {
-      super('/event');
-   }
+    this.url = `${config.server}/api/v1/event`;
+  }
 
   getAllEvents() {
     const path = `${this.url}s`;
@@ -22,7 +23,7 @@ export class EventService extends Service {
     return this.http.get(path);
   }
 
-  getByQr(qr:string){
+  getByQr(qr: string) {
     const path = `${this.url}/qr/${qr}`;
     return this.http.get(path);
   }

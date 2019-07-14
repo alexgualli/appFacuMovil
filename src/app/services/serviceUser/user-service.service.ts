@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
 import User from 'src/app/pages/entity/user';
-import Service from '../service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { tap } from 'rxjs/operators';
+import config from 'src/util/config'
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService extends Service{
+export class UserServiceService {
 
   isLoggedIn = false;
-  token:any;
-  constructor(private http: HttpClient,
-    private storage: NativeStorage) {
-    super('/');
-   }
+  token: any;
 
-  login(rememberMe:boolean,emailAddress:string,password:string){
+  private url: string;
+  constructor(private http: HttpClient) {
+    this.url = `${config.server}/api/v1/`;
+  }
+
+  login(rememberMe: boolean, emailAddress: string, password: string) {
     const path = `${this.url}entrance/login`;
-    return this.http.put(path,{rememberMe,emailAddress,password});
+    return this.http.put(path, { rememberMe, emailAddress, password });
   }
 
 
-  createUser(user:User){
+  createUser(user: User) {
     const path = `${this.url}entrance/signup`;
-    return this.http.post(path,user);
+    return this.http.post(path, user);
   }
 
-  getUserLoged(){
+  getUserLoged() {
     const path = `${this.url}account/me`;
     return this.http.get(path);
   }
-  signOut(){
+  signOut() {
     const path = `${this.url}account/logout`;
     return this.http.get(path);
   }

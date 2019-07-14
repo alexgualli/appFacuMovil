@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import Service from '../service';
 import { HttpClient } from '@angular/common/http';
+import config from 'src/util/config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActivityService extends Service {
+export class ActivityService {
 
+  private url: string;
   constructor(private http: HttpClient) {
-    super('/activity');
+    this.url = `${config.server}/api/v1/activity`;
   }
 
   getById(id: number) {
