@@ -1,10 +1,10 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons>
-            <ion-button slot="start" color="primary">
+            <ion-button slot="start" color="light">
                 <ion-back-button defaultHref="/event-details"> </ion-back-button>
             </ion-button>
-            <ion-title color="primary">Actividad </ion-title>
+            <ion-title color="light">Actividad </ion-title>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -22,7 +22,7 @@
         <ion-card-subtitle>
             Persona a Cargo:
         </ion-card-subtitle>
-        {{ activity.inCharge }}
+        {{ activity.inCharge.lastName }} {{ activity.inCharge.firstName }}
         <br><br>
         <ion-card-subtitle>
             Lugar:
