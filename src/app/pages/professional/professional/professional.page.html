@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start" color="light">
+        <ion-back-button> </ion-back-button>
+      </ion-button>
+      <ion-title color="light">Perfil Profesional</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <!--ion-list>
+    <ion-item href="#">
+      <ion-label>
+        Thumbnail End, Anchor Item
+      </ion-label>
+      <ion-thumbnail slot="end">
+        <img src="http://192.168.8.143:1337/file/image/2">
+      </ion-thumbnail>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="http://192.168.8.143:1337/file/image/2">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>H2 Title Text</h2>
+        <p>Button on right</p>
+      </ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+  </ion-list-->
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-avatar
+          style="min-width:200px;min-height:200px;margin: auto;box-shadow: 0px 0px 10px 0.5px rgba(125,125,125,0.25)">
+          <img src="{{professional.image}}">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center style="text-align:center">
+        <strong>{{professional.lastName.split(" ")[0]}} {{professional.firstName.split(" ")[0]}}</strong>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+      <ion-list-header>
+          <ion-label><h2><strong>Información Personal</strong></h2></ion-label>
+      </ion-list-header>
+    <ion-item>
+      <ion-label>
+        <h2>Nombre Completo</h2>
+        <p>{{professional.lastName}} {{professional.firstName}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Educación</h2>
+        <p>{{professional.education}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Título Universitario</h2>
+        <p>{{professional.collegeDegree}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Especialización</h2>
+        <p>{{professional.specialization}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <h2>Años de Experiencia</h2>
+        <p>{{professional.experience}} <strong>Años</strong></p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+      <ion-list-header>
+          <ion-label><h2><strong>Experiencias</strong></h2></ion-label>
+      </ion-list-header>
+    <ion-item *ngFor="let work of professional.works">
+      <ion-label>
+        <h2>Nombre Completo</h2>
+        <p>{{work.name}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+
+
+</ion-content>
