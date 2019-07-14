@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons>
       <ion-button slot="start" color="light">
-        <ion-back-button> </ion-back-button>
+        <ion-back-button defaultHref="/event-details"> </ion-back-button>
       </ion-button>
       <ion-title color="light">Perfil Profesional</ion-title>
     </ion-buttons>
@@ -10,36 +10,10 @@
 </ion-header>
 
 <ion-content>
-
-
-
-  <!--ion-list>
-    <ion-item href="#">
-      <ion-label>
-        Thumbnail End, Anchor Item
-      </ion-label>
-      <ion-thumbnail slot="end">
-        <img src="http://192.168.8.143:1337/file/image/2">
-      </ion-thumbnail>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="http://192.168.8.143:1337/file/image/2">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>H2 Title Text</h2>
-        <p>Button on right</p>
-      </ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-  </ion-list-->
-
-
   <ion-grid>
     <ion-row>
       <ion-col align-self-center>
-        <ion-avatar
-          style="min-width:200px;min-height:200px;margin: auto;box-shadow: 0px 0px 10px 0.5px rgba(125,125,125,0.25)">
+        <ion-avatar class="avatar">
           <img src="{{professional.image}}">
         </ion-avatar>
       </ion-col>
@@ -52,9 +26,11 @@
   </ion-grid>
 
   <ion-list>
-      <ion-list-header>
-          <ion-label><h2><strong>Información Personal</strong></h2></ion-label>
-      </ion-list-header>
+    <ion-list-header>
+      <ion-label>
+        <h2><strong>Información Personal</strong></h2>
+      </ion-label>
+    </ion-list-header>
     <ion-item>
       <ion-label>
         <h2>Nombre Completo</h2>
@@ -92,20 +68,16 @@
 
   </ion-list>
 
-  <ion-list>
-      <ion-list-header>
-          <ion-label><h2><strong>Experiencias</strong></h2></ion-label>
-      </ion-list-header>
-    <ion-item *ngFor="let work of professional.works">
+  <ion-list *ngIf="professional.works.length>0">
+    <ion-list-header>
       <ion-label>
-        <h2>Nombre Completo</h2>
-        <p>{{work.name}}</p>
+        <h2><strong>Experiencias</strong></h2>
       </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let work of professional.works">
+      <ion-card-content>
+        <ion-card-subtitle>{{work.name}}</ion-card-subtitle>
+      </ion-card-content>
     </ion-item>
-
   </ion-list>
-
-
-
-
 </ion-content>
