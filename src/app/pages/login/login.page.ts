@@ -12,7 +12,7 @@ import User from '../entity/user';
 })
 export class LoginPage implements OnInit {
 
-  constructor( private modalController: ModalController,
+  constructor(private modalController: ModalController,
     private authService: UserServiceService,
     private navCtrl: NavController,
     private alertService: AlertServiceService) { }
@@ -25,22 +25,18 @@ export class LoginPage implements OnInit {
   }
   user: User = new User();
   login(form: NgForm) {
-    this.user.emailAddress=form.value.email;
-    this.user.password=form.value.password;
-    this.authService.login(this.user.rememberMe,this.user.emailAddress,this.user.password).subscribe(
-     (user:any) => {
-       console.log('user: '+user);
-       this.navCtrl.navigateForward(['/events']);
+    this.user.emailAddress = form.value.email;
+    this.user.password = form.value.password;
+    this.authService.login(this.user.rememberMe, this.user.emailAddress, this.user.password).subscribe(
+      (res: any) => {
+        if (res.logged === true) {
+          this.alertService.presentToast(`Bienvenido ${res.user.firstName}`, 'success');
+          this.navCtrl.navigateForward(['/events']);
+        }
       },
-      error => {
-        
-        if(error.status == 200){
-          this.alertService.presentToast('Bienvenido','success');
-          this.navCtrl.navigateForward(['/events']);          
-        }
-        else{
-          this.alertService.presentToast('Email o Password Incorrecto','danger');
-        }
+      (err: any) => {
+        if (err.statusText === 'Unauthorized')
+          this.alertService.presentToast('Email o Contraseña Incorrectos', 'danger');
       }
     );
   }
