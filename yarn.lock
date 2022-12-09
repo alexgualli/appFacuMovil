@@ -285,6 +285,13 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@ionic-native/camera@^5.7.0":
+  version "5.36.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-5.36.0.tgz#85f580af0ff9662c31aa2a8b85b01c84797eb038"
+  integrity sha512-68hdPn0hA7yn4YNTgmLF32x/l7arFulboGhNiyFQ35/QxqrOmppf77p4xaPOyJtNyICKHLaiStC6w1eEAtl9MA==
+  dependencies:
+    "@types/cordova" latest
+
 "@ionic-native/core@^5.0.0":
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/@ionic-native/core/-/core-5.6.1.tgz#0e094257cb600f7f721e3565e8b41497ac4687b2"
@@ -1958,6 +1965,11 @@ cordova-common@^3.1.0:
     strip-bom "^3.0.0"
     underscore "^1.8.3"
     which "^1.3.0"
+
+cordova-plugin-camera@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-camera/-/cordova-plugin-camera-4.0.3.tgz#7373a5938318c86ccfd84e3713e2382d10fe076b"
+  integrity sha512-I4Vo+7LSQH3zn92daVfyubahRS4t65hpOTOBU8aFCZg4zFvYVos9tWoQA8ocIj5Y4k2ltQyOlLHndcNwjSJIxQ==
 
 cordova-plugin-device@^2.0.2:
   version "2.0.2"
@@ -5769,9 +5781,9 @@ qs@6.7.0:
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 querystring-es3@^0.2.0:
   version "0.2.1"
